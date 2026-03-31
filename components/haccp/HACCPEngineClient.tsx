@@ -75,7 +75,7 @@ export default function HACCPEngineClient() {
         throw new Error(err.error || "Error generando el plan")
       }
       const { planId } = await res.json()
-      setTimeout(() => router.push(`/plans/${planId}`), 500)
+      setTimeout(() => router.push(`/dashboard/plans/${planId}`), 500)
     } catch (e: any) {
       clearInterval(interval)
       setError(e.message)
