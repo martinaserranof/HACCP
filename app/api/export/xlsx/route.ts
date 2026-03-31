@@ -23,7 +23,7 @@ export async function GET(request: NextRequest) {
   const buffer = await generateXlsx(plan.json_data as any)
   const filename = `HACCP_${plan.product_name.replace(/[^a-z0-9]/gi, "_")}_SafeTrace.xlsx`
 
-  return new NextResponse(buffer, {
+  return new NextResponse(new Uint8Array(buffer), {
     headers: {
       "Content-Type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
       "Content-Disposition": `attachment; filename="${filename}"`,

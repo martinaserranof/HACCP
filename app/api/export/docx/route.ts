@@ -24,7 +24,7 @@ export async function GET(request: NextRequest) {
   const buffer = await generateDocx(plan.json_data as any)
   const filename = `HACCP_${plan.product_name.replace(/[^a-z0-9]/gi, "_")}_SafeTrace.docx`
 
-  return new NextResponse(buffer, {
+  return new NextResponse(new Uint8Array(buffer), {
     headers: {
       "Content-Type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
       "Content-Disposition": `attachment; filename="${filename}"`,
