@@ -7,7 +7,7 @@ export async function GET(request: NextRequest) {
   const planId = searchParams.get("planId")
   if (!planId) return NextResponse.json({ error: "planId requerido" }, { status: 400 })
 
-  const supabase = createClient()
+  const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
   if (!user) return NextResponse.json({ error: "No autorizado" }, { status: 401 })
 
