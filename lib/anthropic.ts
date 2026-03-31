@@ -70,3 +70,10 @@ Genera el JSON completo del plan HACCP. Mínimo 8 peligros identificados, todos 
     throw new Error(`Invalid JSON from AI: ${clean.substring(0, 200)}`)
   }
 }
+
+// ─── PLAN LIMITS ──────────────────────────────────────────────────────────────
+export const PLAN_LIMITS: Record<string, number> = {
+  basic:      2,
+  pro:        10,
+  enterprise: 9999,
+}
